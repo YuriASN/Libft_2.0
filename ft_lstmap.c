@@ -8,13 +8,13 @@
  * Size of content to work with. */
 static void	clear_content(void *content, size_t content_size)
 {
-	int	i;
+	size_t	i;
 
-	i = -1;
+	i = 0;
 	if (!content)
 		return ;
-	while (++i < content_size)
-		((char *)content)[i] = 0;
+	while (i < content_size)
+		((char *)content)[i++] = 0;
 	free(content);
 }
 

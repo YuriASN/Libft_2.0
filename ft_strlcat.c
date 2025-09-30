@@ -9,14 +9,12 @@
  * String to add from
  * @param size
  * Full size of dest */
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
 	unsigned int	d_len;
 
 	i = 0;
-	if (!dest || !src)
-		return (0);
 	d_len = ft_strlen(dest);
 	while (src[i] && i + d_len < size - 1)
 	{

@@ -8,19 +8,20 @@
  * String to find on the other */
 char	*ft_strnstr(char *str, char *to_find, size_t n)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
-	i = -1;
-	if (!to_find || !to_find[0])
-		return (str);
-	while (++i < n && str[i])
+	i = 0;
+/* 	if (!to_find || !to_find[0])
+		return (str); */
+	while (i < n && str[i])
 	{
-		j = -1;
-		while (to_find[++j] && to_find[j] == str[i + j])
-			continue ;
+		j = 0;
+		while (to_find[j] && to_find[j] == str[i + j])
+			j++;
 		if (!to_find[j])
 			return (&str[i]);
+		i++;
 	}
 	return (NULL);
 }

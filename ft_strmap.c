@@ -1,15 +1,5 @@
 #include "libft.h"
 
-static int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[++i])
-		i++;
-	return (i);
-}
-
 /** @brief
  * Applies the function f to each character of the string given
  * as argument to create a “fresh” new string (with malloc(3))

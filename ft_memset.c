@@ -12,14 +12,12 @@
  * Pointer of s. */
 void	*ft_memset(void *s, int c, size_t n)
 {
-	int		i;
+	size_t	i;
 	char	*str;
 
-	if (!s)
-		return (NULL);
-	i = -1;
+	i = 0;
 	str = s;
-	while (++i < n)
-		str[i] = c;
+	while (i < n)
+		str[i++] = c;
 	return (s);
 }

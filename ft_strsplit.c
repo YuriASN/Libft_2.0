@@ -8,7 +8,7 @@
  * Char to be used as separator.
  * @return
  * The amount of string found. */
-static int	get_strings(char *str, char c)
+static int	get_strings(const char *str, char c)
 {
 	int	count;
 	int	i;
@@ -35,11 +35,10 @@ static int	get_strings(char *str, char c)
  * Char to set the end of string.
  * @return
  * Return new allocated string. Or NULL if allocation fails. */
-static char	*get_one(char *str, char c)
+static char	*get_one(const char *str, char c)
 {
 	char	*new;
 	int		size;
-	int		i;
 
 	size = -1;
 	while (str[++size] && str[size] != c)
@@ -69,6 +68,9 @@ char	**ft_strsplit(char const *s, char c)
 	int		size;
 
 	size = get_strings(s, c);
+	strs = (char **)malloc((size + 1) * sizeof(char *));
+	if (!strs)
+		return (NULL);
 	i = 0;
 	j = -1;
 	while (++j < size)

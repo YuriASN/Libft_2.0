@@ -7,13 +7,11 @@
  * String to find it's lenght.
  * @return
  * Lenght of the string. */
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int	i;
 
 	i = 0;
-	if (!str)
-		return (0);
 	while (str[i])
 		i++;
 	return (i);

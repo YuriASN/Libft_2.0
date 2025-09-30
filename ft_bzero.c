@@ -10,13 +10,11 @@
  * Number of bytes to erase the value. */
 void	ft_bzero(void *pt, size_t n)
 {
-	int		i;
+	size_t	i;
 	char	*s;
 
-	if (!pt)
-		return ;
 	s = (char *)pt;
-	i = -1;
-	while (++i < n)
-		s[i] = '\0';
+	i = 0;
+	while (i < n)
+		s[i++] = '\0';
 }

@@ -9,17 +9,15 @@
  * Character to search for
  * @return
  * The pointer to the found character, or NULL if none is found. */
-char	*strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int	i;
 	int	size;
 
-	if (!s)
-		return (NULL);
 	i = -1;
 	size = ft_strlen(s);
 	while (++i <= size)
 		if (s[i] == c)
-			return (&s[i]);
+			return ((char *)&s[i]);
 	return (NULL);
 }

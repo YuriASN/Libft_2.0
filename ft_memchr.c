@@ -13,15 +13,16 @@
  * Byte found or NULL if not found. */
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int					i;
+	size_t				i;
 	const unsigned char	*str;
 
-	if (!s || !n)
-		return (NULL);
 	str = (const unsigned char *)s;
-	i = -1;
-	while (++i < n)
+	i = 0;
+	while (i < n)
+	{
 		if (str[i] == (unsigned char)c)
-			return (&s[i]);
+			return ((void *)&str[i]);
+		++i;
+	}
 	return (NULL);
 }

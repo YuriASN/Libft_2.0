@@ -11,6 +11,7 @@ void	ft_putnbr_fd(int n, int fd)
 	ssize_t	nbr;
 	char	c;
 
+	nbr = n;
 	if (nbr < 0)
 	{
 		write(1, "-", 1);

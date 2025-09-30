@@ -16,7 +16,7 @@
  * Next character after c in dest, or NULL if c wasn't found. */
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	int			i;
+	size_t		i;
 	const char	*nsrc;
 	char		*ndest;
 
@@ -29,7 +29,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	{
 		ndest[i] = nsrc[i];
 		if (ndest[i] == c)
-			return (&dest[i + 1]);
+			return (&ndest[i + 1]);
 	}
 	return (NULL);
 }
