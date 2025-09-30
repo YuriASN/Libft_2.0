@@ -13,7 +13,7 @@
 void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
 	if (!alst || !del)
-		return;
+		return ;
 	while (alst[0])
 	{
 		ft_lstdelone(alst, del);

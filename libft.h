@@ -34,18 +34,18 @@ void	ft_memdel(void **ap);
 
 //String manipulation
 
-	ft_strcat();
-	ft_strchr();
-	ft_strcmp();
-	ft_strcpy();
-	ft_strdup();
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
-	ft_strncat();
-	ft_strncmp();
-	ft_strncpy();
-	ft_strnstr();
-	ft_strrchr();
-	ft_strstr();
+char	*ft_strcat(char *dest, char *src);
+char	*strchr(const char *s, int c);
+char	*strrchr(const char *s, int c);
+int		ft_strcmp(char *s1, char *s2);
+int		ft_strncmp(char *s1, char *s2, unsigned int n);
+char	*ft_strcpy(char *dest, char *src);
+char	*ft_strncpy(char *dest, char *src, unsigned int n);
+char	*ft_strdup(char *src);
+size_t	ft_strlcat(char *dest, char *src, unsigned int size);
+char	*ft_strncat(char *dest, char *src, unsigned int nb);
+char	*ft_strnstr(char *str, char *to_find, size_t n);
+char	*ft_strstr(char *str, char *to_find);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_strnew(size_t size);
@@ -87,6 +87,5 @@ void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void	ft_lstadd(t_list **alst, t_list *new);
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-
 
 #endif

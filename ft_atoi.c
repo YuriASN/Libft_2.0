@@ -7,7 +7,6 @@ static int	ft_isspace(char c)
 	return (0);
 }
 
-
 /** @brief
  * Converts the initial portion of the string pointed to by str to int.
  * @param str
