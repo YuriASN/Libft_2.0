@@ -1,4 +1,5 @@
 #include "libft.h"
+
 /** @brief
  * Counts how many digits the number passed as a
  * argument. Includes a digit for a sign if needed.
@@ -35,4 +36,24 @@ static int	get_digits(int n)
 char	*ft_itoa(int n)
 {
 	char	*str;
+	int		i;
+	int		digits;
+
+	digits = get_digits(n);
+	str = (char *)ft_memalloc(digits + 1);
+	if (!str)
+		return (NULL);
+	i = digits - 1;
+	if (n < 0)
+	{
+		str[0] = '-';
+		str[i--] = n % 10 * -1 + '0';
+		n /= -10;
+	}
+	while (n)
+	{
+		str[i--] = n % 10 + '0';
+		n /= 10;
+	}
+	return (str);
 }
