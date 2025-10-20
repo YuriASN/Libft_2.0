@@ -6,7 +6,7 @@
  * A pointer to the first link of a list.
  * @param f
  * The address of a function to apply to each link of a list. */
-void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	t_list	*linked;
 
@@ -15,7 +15,7 @@ void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 	linked = lst;
 	while (linked)
 	{
-		f(linked);
+		f(linked->content);
 		linked = linked->next;
 	}
 }

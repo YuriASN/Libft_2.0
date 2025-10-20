@@ -1,0 +1,30 @@
+#include "libft.h"
+
+/** @brief
+ * Allocates memory for an array of nmemb elements of size bytes
+ * each and returns a pointer to the allocated memory.
+ * The memory is set to zero.
+ * @param num
+ * Amount of elements in the array.
+ * @param size
+ * Size of each element.
+ * @return
+ * A pointer to the allocated memory, which is suitably aligned for
+ * any built-in type. On error functions return NULL. */
+void	*ft_calloc(size_t num, size_t size)
+{
+	void	*arr;
+	char	*str;
+	int		i;
+
+	if (!num || !size)
+		return (NULL);
+	arr = malloc(num * size);
+	if (!arr)
+		return (NULL);
+	i = -1;
+	str = (char *)arr;
+	while (++i < num)
+		str[i] = '\0';
+	return (arr);
+}

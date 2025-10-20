@@ -4,9 +4,9 @@
  * Copies n bytes from memory area src to memory area dest.
  * @param dest
  * Memory area to copy to.
- * @brief src
+ * @param src
  * Memory area to copy from
- * @brief n
+ * @param n
  * Amount of bytes to be copied.
  * @return
  * The copy or NULL if error happens. */

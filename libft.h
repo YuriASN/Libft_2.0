@@ -27,7 +27,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
-void	*calloc(size_t num, size_t size);
+void	*ft_calloc(size_t num, size_t size);
 
 //String manipulation
 
@@ -36,7 +36,7 @@ char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, unsigned int n);
 char	*ft_strdup(char *src);
 size_t	ft_strlcat(char *dest, char *src, unsigned int size);
-strlcpy();
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 char	*ft_strnstr(char *str, char *to_find, size_t n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
@@ -63,9 +63,9 @@ char	*ft_itoa(int n);
 
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));

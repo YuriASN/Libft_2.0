@@ -20,11 +20,9 @@ FLAGS = -Wall -Wextra -Werror -g
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(FLAGS) -c $(SRC)
 	@ar -rcs $(NAME) $(OBJ)
 	@echo "\033[92mLibft compiled!\033[m"
 bonus: $(OBJ) $(BNOBJ)
-	@$(CC) $(FLAGS) -c $(SRC) $(BONUS)
 	@ar rcs $(NAME)  $(OBJ) $(BNOBJ)
 	@echo "\033[92mLibft with bonus compiled!\033[m"
 
