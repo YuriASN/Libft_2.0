@@ -60,7 +60,7 @@ static char	*get_one(const char *str, char c)
  * The delimiter character.
  * @return
  * If the allocation fails the function returns NULL. */
-char	**ft_strsplit(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**strs;
 	int		i;
