@@ -14,11 +14,16 @@
 char 	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*new;
-	int		s_len;
-	int		i;
+	size_t	s_len;
+	size_t	i;
 
-	if (!s || start > ft_strlen(s))
+	if (!s)
 		return (NULL);
+	if (start > (unsigned int)ft_strlen(s))
+	{
+		new = ft_calloc(1, sizeof(char));
+		return (new);
+	}
 	s_len = ft_strlen(s);
 	if (len > s_len - start)
 		new = ft_calloc(s_len - start + 1, sizeof(char));
