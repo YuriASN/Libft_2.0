@@ -1,4 +1,5 @@
 #include "libft.h"
+#include <stdio.h>
 
 /** @brief
  * Search for a char inside a string
@@ -8,7 +9,7 @@
  * String to be searched on.
  * @return
  * 1 if found, 0 if not. */
-static int	is_included(char c, char *find)
+static int	is_included(char c, const char *find)
 {
 	int	i;
 
@@ -54,3 +55,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	return (str);
 }
+
+/* int main ()
+{
+	char *s1 = "aoalalaolaola O ola show da xuxa laoaloalao";
+	char *set = "ola";
+
+	printf("%s\n", ft_strtrim(s1, set));
+	return (0);
+} */

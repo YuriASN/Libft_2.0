@@ -43,7 +43,7 @@ static char	*get_one(const char *str, char c)
 	size = -1;
 	while (str[++size] && str[size] != c)
 		continue ;
-	new = ft_strnew(size + 1);
+	new = (char *)ft_calloc(size + 1, sizeof(char));
 	if (!new)
 		return (NULL);
 	while (size--)
