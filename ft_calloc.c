@@ -15,7 +15,7 @@ void	*ft_calloc(size_t num, size_t size)
 {
 	void	*arr;
 	char	*str;
-	int		i;
+	size_t	i;
 
 	if (!num || !size)
 		return (NULL);
