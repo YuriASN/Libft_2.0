@@ -6,7 +6,7 @@ SRC =	ft_isalpha.c	ft_isdigit.c	ft_isalnum.c	ft_isascii.c	ft_isprint.c \
 		ft_strrchr.c	ft_strncmp.c	ft_memchr.c		ft_memcmp.c		ft_strnstr.c \
 		ft_atoi.c		ft_calloc.c		ft_strdup.c		ft_substr.c		ft_strjoin.c \
 		ft_strtrim.c	ft_split.c		ft_itoa.c		ft_strmapi.c	ft_striteri.c \
-		ft_putchar_fd.c	ft_putchar_fd.c	ft_putendl_fd.c	ft_putnbr_fd.c
+		ft_putchar_fd.c	ft_putstr_fd.c	ft_putendl_fd.c	ft_putnbr_fd.c
 
 BONUS =	ft_lstnew.c		ft_lstadd_front.c	ft_lstsize.c	ft_lstlast.c \
 		ft_lstadd_back.c	ft_lstdelone.c	ft_lstclear.c
@@ -19,13 +19,13 @@ FLAGS = -Wall -Wextra -Werror -g
 
 all: $(NAME)
 
-$(NAME):
-	@cc -c $(SRC)
-	@ar -rcs $(NAME) $(OBJ)
+$(NAME): $(SRC)
+	@cc $(FLAGS) -c $(SRC)
+	@ar -rcs $@ $(OBJ)
 	@echo "\033[92mLibft compiled!\033[m"
 bonus:
-	@cc -c $(SRC) $(BONUS)
-	@ar rcs $(NAME)  $(OBJ) $(BNOBJ)
+	@cc $(FLAGS) -c $(SRC) $(BONUS)
+	@ar rcs $(NAME) $(OBJ) $(BNOBJ)
 	@echo "\033[92mLibft with bonus compiled!\033[m"
 
 clean:
@@ -33,7 +33,7 @@ clean:
 	@echo "\e[0;93mclean done.\033[m"
 
 fclean: clean
-	@rm -f $(NAME) libft.h.gch libft.so
+	@rm -f $(NAME)
 	@echo "\e[0;93mfclean done.\033[m"
 
 re: fclean all
