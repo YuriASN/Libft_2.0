@@ -16,14 +16,16 @@
  * to be created. */
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	int	i;
+	size_t	i;
 
-	i = -1;
-	while (++i < size && src[i])
+	i = 0;
+	if (!size)
+		return (ft_strlen(src));
+	while (i < size - 1 && src[i])
+	{
 		dst[i] = src[i];
-	if (src[i])
-		dst[size - 1] = '\0';
-	else
-		dst[i] = '\0';
+		++i;
+	}
+	dst[i] = '\0';
 	return (ft_strlen(src));
 }
