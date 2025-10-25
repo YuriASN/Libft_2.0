@@ -2,7 +2,7 @@
 
 static int	ft_isspace(char c)
 {
-	if ((c >= 9 && c <= 13) || c == ' ')
+	if ((c >= 1 && c <= 32) || c == ' ')
 		return (1);
 	return (0);
 }
@@ -16,9 +16,9 @@ static int	ft_isspace(char c)
  */
 int	ft_atoi(const char *str)
 {
-	ssize_t	nbr;
-	int		sig;
-	int		i;
+	int	nbr;
+	int	sig;
+	int	i;
 
 	if (!str)
 		return (0);
@@ -33,7 +33,7 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	nbr = 0;
-	while (ft_isdigit(str[++i]))
-		nbr = nbr * 10 + (str[i] + '0');
+	while (ft_isdigit(str[i]))
+		nbr = (nbr * 10) + (str[i++] - '0');
 	return (nbr * sig);
 }
