@@ -13,18 +13,19 @@
  * any built-in type. On error functions return NULL. */
 void	*ft_calloc(size_t num, size_t size)
 {
-	void	*arr;
 	char	*str;
 	size_t	i;
 
 	if (!num || !size)
+		return (malloc(1));
+	if (num >= __SIZE_MAX__ || size >= __SIZE_MAX__
+		|| (ssize_t)size < 0 || (ssize_t)num < 0)
 		return (NULL);
-	arr = malloc(num * size);
-	if (!arr)
+	str = malloc(num * size);
+	if (!str)
 		return (NULL);
-	i = -1;
-	str = (char *)arr;
-	while (++i < num)
-		str[i] = '\0';
-	return (arr);
+	i = 0;
+	while (i < num * size && i < sizeof(str))
+		str[i++] = '\0';
+	return ((void *)str);
 }
