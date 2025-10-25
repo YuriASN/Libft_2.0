@@ -44,7 +44,9 @@ char	*ft_itoa(int n)
 	if (!str)
 		return (NULL);
 	i = digits - 1;
-	if (n < 0)
+	if (!n)
+		str[0] = '0';
+	else if (n < 0)
 	{
 		str[0] = '-';
 		str[i--] = n % 10 * -1 + '0';
