@@ -2,7 +2,7 @@
 
 static int	ft_isspace(char c)
 {
-	if ((c >= 1 && c <= 32) || c == ' ')
+	if ((c >= 9 && c <= 13) || c == ' ')
 		return (1);
 	return (0);
 }
