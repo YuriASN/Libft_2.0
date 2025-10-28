@@ -25,7 +25,7 @@ void	*ft_calloc(size_t num, size_t size)
 	if (!str)
 		return (NULL);
 	i = 0;
-	while (i < num * size && i < sizeof(str))
+	while (i < num * size)
 		str[i++] = '\0';
 	return ((void *)str);
 }
