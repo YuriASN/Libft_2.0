@@ -73,6 +73,8 @@ char	**ft_split(char const *s, char c)
 	int		j;
 	int		size;
 
+	if (!s)
+		return (NULL);
 	size = get_strings(s, c);
 	strs = (char **)ft_calloc(size + 1, sizeof(char *));
 	if (!strs)
