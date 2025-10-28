@@ -11,13 +11,18 @@
  * the content of the node. */
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
+	t_list	*tmp;
+	t_list	*to_free;
+
 	if (!lst)
 		return ;
-	while (lst[0])
+	tmp = *lst;
+	while (tmp)
 	{
-		del(lst[0]);
-		free(lst[0]);
-		lst[0] = lst[0]->next;
+		del(tmp->content);
+		to_free = tmp;
+		tmp = tmp->next;
+		free(to_free);
 	}
 	lst[0] = NULL;
 }
