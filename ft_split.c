@@ -35,7 +35,7 @@ static int	get_strings(const char *str, char c)
  * Char to set the end of string.
  * @return
  * Return new allocated string. Or NULL if allocation fails. */
-static char	*get_one(const char *str, char c)
+static char	*get_one(char **strs, int j, const char *str, char c)
 {
 	char	*new;
 	int		size;
@@ -45,9 +45,15 @@ static char	*get_one(const char *str, char c)
 		continue ;
 	new = (char *)ft_calloc(size + 1, sizeof(char));
 	if (!new)
+	{
+		while (j--)
+			free(strs[j]);
+		free(strs);
 		return (NULL);
+	}
 	while (size--)
 		new[size] = str[size];
+	strs[j] = new;
 	return (new);
 }
 
@@ -68,7 +74,7 @@ char	**ft_split(char const *s, char c)
 	int		size;
 
 	size = get_strings(s, c);
-	strs = (char **)malloc((size + 1) * sizeof(char *));
+	strs = (char **)ft_calloc(size + 1, sizeof(char *));
 	if (!strs)
 		return (NULL);
 	i = 0;
@@ -77,17 +83,11 @@ char	**ft_split(char const *s, char c)
 	{
 		while (s[i] == c)
 			++i;
-		if (s[i])
-			strs[j] = get_one(&s[i], c);
-		if (!strs[j])
-		{
-			while (j--)
-				free(strs[i]);
-			free(strs);
+		if (!s[i])
+			break ;
+		if (!get_one(strs, j, &s[i], c))
 			return (NULL);
-		}
 		i += ft_strlen(strs[j]);
 	}
-	strs[j] = NULL;
 	return (strs);
 }
