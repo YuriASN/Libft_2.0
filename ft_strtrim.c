@@ -17,7 +17,7 @@ static int	is_included(char c, const char *find)
 	while (find[++i])
 		if (c == find[i])
 			return (1);
-	return(0);
+	return (0);
 }
 
 /** @brief
@@ -44,7 +44,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	end = ft_strlen(s1) - 1;
 	while (end > start && is_included(s1[end], set))
 		end--;
-	str = (char *)ft_calloc((end - start) + 1, sizeof(char));
+	str = (char *)ft_calloc((end - start) + 2, sizeof(char));
 	if (!str)
 		return (NULL);
 	i = -1;
