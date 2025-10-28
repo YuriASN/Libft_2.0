@@ -1,6 +1,24 @@
 #include "libft.h"
 
 /** @brief
+ * Clean the content and free the whole list
+ * @param list
+ * List of nodes to clean and free.
+ * @param del
+ * Function to clear the content.
+ * @return
+ * NULL */
+static t_list	*clear_all(t_list *list, void (*del)(void *))
+{
+	while (list)
+	{
+		ft_lstdelone(list, del);
+		list = list->next;
+	}
+	return (NULL);
+}
+
+/** @brief
  * Iterates through the list ’lst’, applies the function
  * ’f’ to each node’s content, and creates a new list
  * resulting of the successive applications of the function ’f’.
@@ -13,17 +31,24 @@
  * The address of the function used to delete a node’s content if needed.
  * @return
  *  The new list. NULL if the allocation fails. */
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
+	t_list	*head;
 	t_list	*new;
-	t_list	*tmp;
 
 	if (!lst || !f || !del)
 		return (NULL);
-	while (tmp)
+	new = ft_lstnew(f(lst->content));
+	if (!new)
+		clear_all(new, del);
+	head = new;
+	while (lst->next)
 	{
-		new = ft_lstnew(tmp->content);
-		if (!new)
-			
+		lst = lst->next;
+		new->next = ft_lstnew(f(lst->content));
+		if (!new->next)
+			clear_all(head, del);
+		new = new->next;
 	}
+	return (head);
 }
