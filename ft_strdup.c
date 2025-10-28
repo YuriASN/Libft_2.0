@@ -8,9 +8,9 @@ char	*ft_strdup(char *src)
 {
 	char	*str;
 
-	str = (char *)malloc((ft_strlen(src) + 1) * sizeof(char));
+	str = (char *)ft_calloc((ft_strlen(src) + 1), sizeof(char));
 	if (!str)
 		return (NULL);
-	ft_strlcpy(str, src, sizeof(str));
+	ft_strlcpy(str, src, ft_strlen(src) + 1);
 	return (str);
 }
