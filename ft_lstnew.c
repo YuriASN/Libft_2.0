@@ -13,16 +13,10 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*new_link;
 
-	new_link = (t_list *)malloc(sizeof(t_list));
+	new_link = (t_list *)ft_calloc(sizeof(t_list), 1);
 	if (!new_link)
 		return (NULL);
-	new_link->content = malloc(sizeof(content));
-	if (!new_link->content)
-	{
-		free(new_link);
-		return (NULL);
-	}
-	ft_memcpy(new_link->content, content, sizeof(content));
+	new_link->content = content;
 	new_link->next = NULL;
 	return (new_link);
 }
