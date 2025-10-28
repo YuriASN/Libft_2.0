@@ -40,7 +40,7 @@ char	*ft_itoa(int n)
 	int		digits;
 
 	digits = get_digits(n);
-	str = (char *)calloc(digits + 1, sizeof(char));
+	str = (char *)ft_calloc(digits + 1, sizeof(char));
 	if (!str)
 		return (NULL);
 	i = digits - 1;
