@@ -20,8 +20,6 @@ int	ft_atoi(const char *str)
 	int	sig;
 	int	i;
 
-	if (!str)
-		return (0);
 	i = 0;
 	sig = 1;
 	while (ft_isspace(str[i]))
