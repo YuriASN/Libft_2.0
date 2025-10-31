@@ -15,8 +15,10 @@ size_t	ft_strlcat(char *dest, char *src, unsigned int size)
 	unsigned int	d_len;
 
 	i = 0;
+	if (!size)
+		return (ft_strlen(src));
 	d_len = ft_strlen(dest);
-	if (!size || size <= d_len)
+	if (size <= d_len)
 		return (size + ft_strlen(src));
 	while (src[i] && i + d_len < size - 1)
 	{
