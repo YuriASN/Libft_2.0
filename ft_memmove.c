@@ -13,26 +13,28 @@
  * The pointer to dest, or NULL if error happens. */
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char		tmp[1024];
 	char		*to;
 	const char	*from;
 	size_t		i;
 
-	if (!dest || !src)
-		return (NULL);
-	i = 0;
-	from = (const char *)src;
+	if (dest == src || !n)
+		return (dest);
 	to = (char *)dest;
-	while (i < n)
-	{
-		tmp[i] = from[i];
-		i++;
-	}
+	from = (char *)src;
 	i = 0;
-	while (i < n)
+	if (dest > src)
 	{
-		to[i] = tmp[i];
-		i++;
+		while (--n)
+			to[n] = from[n];
+		to[n] = from[n];
 	}
-	return ((void *)to);
+	else
+	{
+		while (i < n)
+		{
+			to[i] = from[i];
+			++i;
+		}
+	}
+	return (dest);
 }
