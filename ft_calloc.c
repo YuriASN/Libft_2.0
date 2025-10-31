@@ -17,7 +17,7 @@ void	*ft_calloc(size_t num, size_t size)
 	size_t	i;
 
 	if (!num || !size)
-		return (malloc(1));
+		return (malloc(0));
 	if (num >= __SIZE_MAX__ || size >= __SIZE_MAX__
 		|| (ssize_t)size < 0 || (ssize_t)num < 0)
 		return (NULL);
