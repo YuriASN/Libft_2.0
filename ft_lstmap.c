@@ -33,22 +33,26 @@ static t_list	*clear_all(t_list *list, void (*del)(void *))
  *  The new list. NULL if the allocation fails. */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*head;
+	t_list	*tmp;
 	t_list	*new;
+	void	*content;
 
 	if (!lst || !f || !del)
 		return (NULL);
-	new = ft_lstnew(f(lst->content));
-	if (!new)
-		clear_all(new, del);
-	head = new;
-	while (lst->next)
+	new = NULL;
+	while (lst)
 	{
+		content = f(lst->content);
+		if (!content)
+			return (clear_all(new, del));
+		tmp = ft_lstnew(content);
+		if (!tmp)
+		{
+			del(content);
+			return (clear_all(new, del));
+		}
+		ft_lstadd_back(&new, tmp);
 		lst = lst->next;
-		new->next = ft_lstnew(f(lst->content));
-		if (!new->next)
-			clear_all(head, del);
-		new = new->next;
 	}
-	return (head);
+	return (new);
 }
