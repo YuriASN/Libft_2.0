@@ -10,10 +10,13 @@
  * NULL */
 static t_list	*clear_all(t_list *list, void (*del)(void *))
 {
+	t_list	*next;
+
 	while (list)
 	{
+		next = list->next;
 		ft_lstdelone(list, del);
-		list = list->next;
+		list = next;
 	}
 	return (NULL);
 }
@@ -42,8 +45,10 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	new = NULL;
 	while (lst)
 	{
-		content = f(lst->content);
-		if (!content)
+		content = NULL;
+		if (lst->content)
+			content = f(lst->content);
+		if (!content && lst->content)
 			return (clear_all(new, del));
 		tmp = ft_lstnew(content);
 		if (!tmp)
