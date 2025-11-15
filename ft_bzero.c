@@ -13,6 +13,8 @@ void	ft_bzero(void *pt, size_t n)
 	size_t	i;
 	char	*s;
 
+	if (!pt || !n)
+		return ;
 	s = (char *)pt;
 	i = 0;
 	while (i < n)

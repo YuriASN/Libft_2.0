@@ -12,8 +12,8 @@ char	*ft_strnstr(char *str, char *to_find, size_t n)
 	size_t	j;
 
 	i = 0;
-	if (!to_find[0])
-		return (str);
+	if (!str || !to_find || !n)
+		return (NULL);
 	while (i < n && str[i])
 	{
 		j = 0;

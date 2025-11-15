@@ -10,8 +10,12 @@ int	ft_strncmp(const char *str1, const char *str2, unsigned int n)
 	unsigned char	*s1;
 	unsigned char	*s2;
 
-	if (!n)
+	if ((!str1 && !str2) || !n)
 		return (0);
+	else if (!str1 && str2)
+		return (str2[0]);
+	else if (str1 && !str2)
+		return (str1[0]);
 	s1 = (unsigned char *)str1;
 	s2 = (unsigned char *)str2;
 	i = 0;
