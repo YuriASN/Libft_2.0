@@ -7,8 +7,14 @@
  * The string to output.
  * @param fd
  * The file descriptor. */
-void	ft_putendl_fd(char const *s, int fd)
+int	ft_putendl_fd(char const *s, int fd)
 {
-	ft_putstr_fd(s, fd);
-	write(fd, "\n", 1);
+	int	amount;
+	
+	amount = ft_putstr_fd(s, fd);
+	if (amount == -1)
+		return (-1);
+	if (write(fd, "\n", 1) == -1)
+		return (-1);
+	return (amount + 1);
 }
