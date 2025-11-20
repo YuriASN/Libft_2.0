@@ -52,7 +52,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_putchar_fd(char c, int fd);
 int		ft_putstr_fd(char const *s, int fd);
 int		ft_putendl_fd(char const *s, int fd);
-int		ft_putnbr_fd(int n, int fd);
+int		ft_putnbr_fd(ssize_t n, int fd);
 
 //Others
 

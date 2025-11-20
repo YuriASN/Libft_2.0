@@ -6,14 +6,12 @@
  * The integer to print.
  * @param fd
  * The file descriptor. */
-int	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(ssize_t nbr, int fd)
 {
-	ssize_t	nbr;
 	int		check;
 	int		total;
 	char	c;
 
-	nbr = n;
 	total = 0;
 	if (nbr < 0)
 	{
