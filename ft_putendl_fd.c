@@ -10,7 +10,7 @@
 int	ft_putendl_fd(char const *s, int fd)
 {
 	int	amount;
-	
+
 	amount = ft_putstr_fd(s, fd);
 	if (amount == -1)
 		return (-1);
