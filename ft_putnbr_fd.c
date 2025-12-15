@@ -13,6 +13,7 @@ int	ft_putnbr_fd(ssize_t nbr, int fd)
 	char	c;
 
 	total = 0;
+	check = 0;
 	if (nbr < 0)
 	{
 		if (write(fd, "-", 1) == -1)
