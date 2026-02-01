@@ -1,12 +1,5 @@
 #include "libft.h"
 
-static int	ft_isspace(char c)
-{
-	if ((c >= 9 && c <= 13) || c == ' ')
-		return (1);
-	return (0);
-}
-
 /** @brief
  * Converts the initial portion of the string pointed to by str to int.
  * @param str
