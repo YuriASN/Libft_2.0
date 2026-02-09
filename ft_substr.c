@@ -2,7 +2,8 @@
 
 /** @brief 
  * Allocates memory and returns a substring from the string ’s’.
- * The substring starts at index ’start’ and has a maximum length of ’len’.
+ * The substring starts at index ’start’ and has
+ * a maximum length of ’len’.
  * @param s
  * The original string from which to create the substring.
  * @param start
