@@ -60,6 +60,7 @@ int		ft_putnbr_fd(ssize_t n, int fd);
 int		ft_strlen(const char *str);
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
+void	ft_intswap(int *x, int *y);
 
 //Lists
 
