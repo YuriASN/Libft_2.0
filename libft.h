@@ -62,7 +62,6 @@ int		ft_atoi(const char *str);
 int		ft_abs(int nbr);
 char	*ft_itoa(int n);
 void	ft_intswap(int *x, int *y);
-ssize_t	ft_pow(int base, int power);
 
 //Lists
 
