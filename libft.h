@@ -61,6 +61,8 @@ int		ft_putnbr_fd(ssize_t n, int fd);
 int		ft_strlen(const char *str);
 int		ft_atoi_overflow(char *str);
 int		ft_atoi(const char *str);
+char	*get_next_line(int fd);
+int		ft_printf(const char *str, ...);
 long	ft_abs(int nbr);
 char	*ft_itoa(int n);
 void	ft_intswap(int *x, int *y);
